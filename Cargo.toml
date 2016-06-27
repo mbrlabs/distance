@@ -1,0 +1,6 @@
+[package]
+name = "distance"
+version = "0.1.0"
+authors = ["Marcus Brummer <mbrlabs7@gmail.com>"]
+
+[dependencies]
