@@ -1,25 +1,20 @@
 use std::cmp;
 
 pub fn levenshtein(a: &str, b: &str) -> i32 {
+    // get length of unicode chars
     let len_a = a.chars().count();
     let len_b = b.chars().count();
 
-    let row: Vec<i32> = vec![0; len_b + 1];
-    let mut mat: Vec<Vec<i32>> = vec![row; len_a + 1];
-
-    // source prefixes can be transformed into empty string by
-    // dropping all characters
-    for i in 1..len_a {
-        mat[i][0] = i as i32;
+    // initialize matrix
+    let mut mat: Vec<Vec<i32>> = vec![vec![0; len_b + 1]; len_a + 1];
+    for i in 1..(len_a + 1) { 
+        mat[i][0] = i as i32; 
+    }
+    for i in 1..(len_b + 1) { 
+        mat[0][i] = i as i32; 
     }
 
-    // target prefixes can be reached from empty source prefix
-    // by inserting every character
-    for i in 1..len_b {
-        mat[0][i] = i as i32;
-    }
-
-    // do edit operations in mat
+    // apply edit operations
     for (i, a_char) in a.chars().enumerate() {
         for (j, b_char) in b.chars().enumerate() {
             let substitution = if a_char == b_char {0} else {1};
@@ -40,6 +35,26 @@ pub fn levenshtein(a: &str, b: &str) -> i32 {
 mod tests {
     use super::levenshtein;
 
+    #[test]
+    fn basic() {
+        assert_eq!(levenshtein("kitten", "sitting"), 3);
+        assert_eq!(levenshtein("book", "back"), 2);
+        assert_eq!(levenshtein("table", "dinner"), 5);
+        assert_eq!(levenshtein("person", "pardon"), 2);
+        assert_eq!(levenshtein("person", "persons"), 1);
+    }
 
+    #[test]
+    fn equal() {
+        assert_eq!(levenshtein("kitten", "kitten"), 0);
+        assert_eq!(levenshtein("a", "a"), 0);
+    }
+
+    #[test]
+    fn empty() {
+        assert_eq!(levenshtein("book", ""), 4);
+        assert_eq!(levenshtein("", "book"), 4);
+        assert_eq!(levenshtein("", ""), 0);
+    }
 
 }
