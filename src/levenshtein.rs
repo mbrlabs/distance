@@ -2,15 +2,18 @@ use std::cmp;
 
 /// # Levenshtein distance
 /// 
-/// The levenshtein distance is the number of per-character changes (insertion, deletion & substitution)
+/// The [Levenshtein distance]((https://en.wikipedia.org/wiki/Levenshtein_distance)) is the number of per-character changes (insertion, deletion & substitution)
 /// one string differs from annother.
-/// See Wikipedia for more details: [Levenshtein distance](https://en.wikipedia.org/wiki/Levenshtein_distance)
 ///
 /// ## Examples
 /// ```
+/// use distance::*;
+/// 
+/// // Levenshtein distance
 /// let distance = levenshtein("kitten", "sitting");   
 /// assert_eq!(distance, 3);
 /// ```
+///
 pub fn levenshtein(a: &str, b: &str) -> i32 {
     // get length of unicode chars
     let len_a = a.chars().count();
