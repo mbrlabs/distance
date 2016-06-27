@@ -19,7 +19,7 @@ pub fn levenshtein(a: &str, b: &str) -> i32 {
     let len_a = a.chars().count();
     let len_b = b.chars().count();
 
-    // initialize matrix
+    // initialize the matrix
     let mut mat: Vec<Vec<i32>> = vec![vec![0; len_b + 1]; len_a + 1];
     for i in 1..(len_a + 1) { 
         mat[i][0] = i as i32; 
