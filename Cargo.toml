@@ -3,9 +3,19 @@ name = "distance"
 version = "0.1.0"
 authors = ["Marcus Brummer <mbrlabs7@gmail.com>"]
 
-keywords = ["string matching", "string", "matching", "levenshtein"]
+description = "A collection of approximate string matching algorithms"
+keywords = ["search", "text", "string", "matching", "levenshtein"]
 repository = "https://github.com/mbrlabs/distance"
+homepage = "https://github.com/mbrlabs/distance"
 readme = "README.md"
 license = "Apache-2.0"
+publish = false
 
-[dependencies]
+include = [
+    "**/*.rs",
+    "Cargo.toml",
+    "LICENCE",
+    "AUTHORS",
+    "CONTRIBUTORS",
+    "CHANGES",
+]

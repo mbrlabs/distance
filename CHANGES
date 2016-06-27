@@ -1,0 +1,4 @@
+[0.1.0] ~ 28/06/2016
+- Initial release
+- Added the Levenshtein distance algorithm
+- Added tests for the Levenshtein distance algorithm
