@@ -71,5 +71,5 @@ mod tests {
         assert_eq!(levenshtein("こんにちは", "こんにちは abc"), 4);
         assert_eq!(levenshtein("༆༃ʘ", "༆˥ʘ"), 1);
     }
-
+    
 }
