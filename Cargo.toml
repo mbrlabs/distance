@@ -7,6 +7,7 @@ description = "A collection of approximate string matching algorithms"
 keywords = ["search", "text", "string", "matching", "levenshtein"]
 repository = "https://github.com/mbrlabs/distance"
 homepage = "https://github.com/mbrlabs/distance"
+documentation = "https://mbrlabs.github.io/distance"
 readme = "README.md"
 license = "Apache-2.0"
 publish = false
