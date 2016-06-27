@@ -51,10 +51,25 @@ mod tests {
     }
 
     #[test]
+    fn cases() {
+        assert_eq!(levenshtein("Hello", "hello"), 1);
+        assert_eq!(levenshtein("World", "world"), 1);
+    }
+
+    #[test]
     fn empty() {
         assert_eq!(levenshtein("book", ""), 4);
         assert_eq!(levenshtein("", "book"), 4);
         assert_eq!(levenshtein("", ""), 0);
+    }
+
+    #[test]
+    fn unicode() {
+        assert_eq!(levenshtein("Späße", "Spaß"), 2);
+        assert_eq!(levenshtein("さようなら", "こんにちは"), 5);
+        assert_eq!(levenshtein("さようなら", "さようなう"), 1);
+        assert_eq!(levenshtein("こんにちは", "こんにちは abc"), 4);
+        assert_eq!(levenshtein("༆༃ʘ", "༆˥ʘ"), 1);
     }
 
 }
