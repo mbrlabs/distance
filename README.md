@@ -6,7 +6,8 @@ This is a rust library for approximate string matching algorithms.
 Possible applications for this are fuzzy string searching, spell checkers, spam filters, etc.
 
 ## Algorithms
-- [Levenshtein distance](https://en.wikipedia.org/wiki/Levenshtein_distance)
+- [Levenshtein distance (since v0.1)](https://en.wikipedia.org/wiki/Levenshtein_distance) 
+- [Hamming distance (since v0.2)](https://en.wikipedia.org/wiki/Hamming_distance)
 
 ## Add as dependency
 distance is available on [crates.io](https://crates.io/crates/distance).
