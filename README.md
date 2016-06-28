@@ -26,7 +26,7 @@ let distance = levenshtein("hannah", "hanna");
 assert_eq!(distance, 1);
 
 // Hamming distance
-let distance = levenshtein("karolin", "kathrin").unwrap();   
+let distance = hamming("karolin", "kathrin").unwrap();   
 assert_eq!(distance, 3);
 ```
 
