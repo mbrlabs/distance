@@ -46,6 +46,7 @@ pub fn hamming(a: &str, b: &str) -> Result<usize, DistanceError> {
 #[cfg(test)]
 mod tests {
     use super::hamming;
+    use ::DistanceError;
 
     #[test]
     fn basic() {
@@ -54,6 +55,20 @@ mod tests {
         assert_eq!(hamming("karolin", "kathrin").unwrap(), 3);
         assert_eq!(hamming("hello", "world").unwrap(), 4);
         assert_eq!(hamming("Rust", "rust").unwrap(), 1);
+    }
+
+    #[test]
+    #[allow(unused_variables)]
+    fn matching() {
+        match hamming("karolin", "kathrin") {
+            Ok(distance) => assert_eq!(distance, 3),
+            Err(err) => panic!("This should not happen"), 
+        };
+
+        match hamming("abra", "kadabra") {
+            Ok(distance) => panic!("These are not valid inputs"),
+            Err(err) => assert_eq!(err, DistanceError::InvalidArgs),
+        };
     }
 
     #[test]
