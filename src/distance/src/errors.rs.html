@@ -4,10 +4,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="rustdoc">
-    <meta name="description" content="Source to the Rust file `src/lib.rs`.">
+    <meta name="description" content="Source to the Rust file `src/errors.rs`.">
     <meta name="keywords" content="rust, rustlang, rust-lang">
 
-    <title>lib.rs.html -- source</title>
+    <title>errors.rs.html -- source</title>
 
     <link rel="stylesheet" type="text/css" href="../../../rustdoc.css">
     <link rel="stylesheet" type="text/css" href="../../../main.css">
@@ -63,16 +63,6 @@
 <span id="19">19</span>
 <span id="20">20</span>
 <span id="21">21</span>
-<span id="22">22</span>
-<span id="23">23</span>
-<span id="24">24</span>
-<span id="25">25</span>
-<span id="26">26</span>
-<span id="27">27</span>
-<span id="28">28</span>
-<span id="29">29</span>
-<span id="30">30</span>
-<span id="31">31</span>
 </pre><pre class='rust '>
 <span class='comment'>// Copyright (c) 2016. See AUTHORS file.</span>
 <span class='comment'>//</span>
@@ -88,23 +78,13 @@
 <span class='comment'>// See the License for the specific language governing permissions and</span>
 <span class='comment'>// limitations under the License.</span>
 
-<span class='doccomment'>//! # A collection of approximate string matching algorithms </span>
-<span class='doccomment'>//!</span>
-<span class='doccomment'>//! This library contains algorithms dealing with [approximate string matching](https://en.wikipedia.org/wiki/Approximate_string_matching).</span>
-<span class='doccomment'>//! These algorithms can be used to tell the approximate difference between two </span>
-<span class='doccomment'>//! strings. This is usful for a varity of things like spell checking, fuzzy search, etc.</span>
-<span class='doccomment'>//! </span>
-<span class='doccomment'>//! ## Algorithms</span>
-<span class='doccomment'>//! - [Levenshtein distance](https://en.wikipedia.org/wiki/Levenshtein_distance)</span>
-<span class='doccomment'>//! - [Hamming distance](https://en.wikipedia.org/wiki/Hamming_distance)</span>
-<span class='doccomment'>//!</span>
-<span class='kw'>pub</span> <span class='kw'>use</span> <span class='self'>self</span>::<span class='ident'>levenshtein</span>::<span class='op'>*</span>;
-<span class='kw'>pub</span> <span class='kw'>use</span> <span class='self'>self</span>::<span class='ident'>hamming</span>::<span class='op'>*</span>;
-<span class='kw'>pub</span> <span class='kw'>use</span> <span class='self'>self</span>::<span class='ident'>errors</span>::<span class='op'>*</span>;
-
-<span class='kw'>mod</span> <span class='ident'>levenshtein</span>;
-<span class='kw'>mod</span> <span class='ident'>hamming</span>;
-<span class='kw'>mod</span> <span class='ident'>errors</span>;</pre>
+<span class='doccomment'>/// distance error type</span>
+<span class='doccomment'>///</span>
+<span class='attribute'>#[<span class='ident'>derive</span>(<span class='ident'>Debug</span>, <span class='ident'>PartialEq</span>)]</span>
+<span class='kw'>pub</span> <span class='kw'>enum</span> <span class='ident'>DistanceError</span> {
+    <span class='doccomment'>/// Invalid arguments error</span>
+    <span class='ident'>InvalidArgs</span>,
+}</pre>
 </section>
     <section id='search' class="content hidden"></section>
 

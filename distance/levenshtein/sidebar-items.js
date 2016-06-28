@@ -1,1 +1,1 @@
-initSidebarItems({"fn":[["levenshtein","Levenshtein distance"]]});
+initSidebarItems({"fn":[["levenshtein","Calculates the Levenshtein distance between two strings."]]});

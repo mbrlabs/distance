@@ -1,1 +1,1 @@
-initSidebarItems({"fn":[["levenshtein","Levenshtein distance"]]});
+initSidebarItems({"enum":[["DistanceError","distance error type"]],"fn":[["hamming","Calculates the Hamming distance between two strings of equal length."],["levenshtein","Calculates the Levenshtein distance between two strings."]]});
