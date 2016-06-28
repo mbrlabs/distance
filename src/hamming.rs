@@ -28,7 +28,7 @@ use super::DistanceError;
 /// assert_eq!(distance, 3);
 /// ```
 ///
-pub fn hamming(a: &str, b: &str) -> Result<i32, DistanceError> {
+pub fn hamming(a: &str, b: &str) -> Result<usize, DistanceError> {
     if a.chars().count() != b.chars().count() {
         return Err(DistanceError::InvalidArgs);
     }
@@ -49,7 +49,35 @@ mod tests {
 
     #[test]
     fn basic() {
+        assert_eq!(hamming("sitting", "sitting").unwrap(), 0);
+        assert_eq!(hamming("abcdefg", "hijklmn").unwrap(), 7);
+        assert_eq!(hamming("karolin", "kathrin").unwrap(), 3);
+        assert_eq!(hamming("hello", "world").unwrap(), 4);
+        assert_eq!(hamming("Rust", "rust").unwrap(), 1);
+    }
 
+    #[test]
+    #[should_panic]
+    fn different_len() {
+        hamming("abra", "kadabra").unwrap();
+    }
+
+    #[test]
+    fn empty() {
+        assert_eq!(hamming("", "").unwrap(), 0);
+    }
+
+    #[test]
+    fn unicode() {
+        assert_eq!(hamming("さようなら", "さようなは").unwrap(), 1);
+        assert_eq!(hamming("säge", "sage").unwrap(), 1);
+        assert_eq!(hamming("ßäöüé", "ößäüè").unwrap(), 4);
+    }
+
+    #[test]
+    #[should_panic]
+    fn unicode_different_len() {
+        hamming("さようならa", "さようなら").unwrap();
     }
 
 }

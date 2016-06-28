@@ -28,18 +28,18 @@ use std::cmp;
 /// assert_eq!(distance, 1);
 /// ```
 ///
-pub fn levenshtein(a: &str, b: &str) -> i32 {
+pub fn levenshtein(a: &str, b: &str) -> usize {
     // get length of unicode chars
     let len_a = a.chars().count();
     let len_b = b.chars().count();
 
     // initialize the matrix
-    let mut mat: Vec<Vec<i32>> = vec![vec![0; len_b + 1]; len_a + 1];
+    let mut mat: Vec<Vec<usize>> = vec![vec![0; len_b + 1]; len_a + 1];
     for i in 1..(len_a + 1) { 
-        mat[i][0] = i as i32; 
+        mat[i][0] = i; 
     }
     for i in 1..(len_b + 1) { 
-        mat[0][i] = i as i32; 
+        mat[0][i] = i; 
     }
 
     // apply edit operations
