@@ -14,11 +14,14 @@
 
 use super::DistanceError;
 
-/// Calculates the [hamming distance](https://en.wikipedia.org/wiki/Hamming_distance) between two strings of equal length.
+/// Calculates the Hamming distance between two strings of equal length.
 ///
-/// The hamming distance is the number of positions at which two strings are different.
-/// Unicode is fully supported. Returns an error if the string arguments do not have equal length.
-/// 
+/// # Hamming distance
+/// The [Hamming distance](https://en.wikipedia.org/wiki/Hamming_distance) between two strings of equal length is the number of positions at 
+/// which two strings are different.
+/// This returns an error of type DistanceError::InvalidArgs if the string arguments do not have equal length.
+/// Unicode is fully supported.
+///
 /// ## Examples
 /// ```
 /// use distance::*;

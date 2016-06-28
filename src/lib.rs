@@ -14,18 +14,14 @@
 
 //! # A collection of approximate string matching algorithms 
 //!
-//! This library contains algorithms dealing with approximate string matching.
+//! This library contains algorithms dealing with [approximate string matching](https://en.wikipedia.org/wiki/Approximate_string_matching).
 //! These algorithms can be used to tell the approximate difference between two 
 //! strings. This is usful for a varity of things like spell checking, fuzzy search, etc.
 //! 
 //! ## Algorithms
-//! - Levenshtein distance 
+//! - [Levenshtein distance](https://en.wikipedia.org/wiki/Levenshtein_distance)
+//! - [Hamming distance](https://en.wikipedia.org/wiki/Hamming_distance)
 //!
-//! ## Literature
-//! - [Approximate string matching - Wikipedia](https://en.wikipedia.org/wiki/Approximate_string_matching)
-//! - [Levenshtein distance - Wikipedia](https://en.wikipedia.org/wiki/Levenshtein_distance)
-//!
-
 pub use self::levenshtein::*;
 pub use self::hamming::*;
 pub use self::errors::*;

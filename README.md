@@ -22,7 +22,11 @@ distance = "0.1"
 use distance::*; 
 
 // Levenshtein distance
-let distance = levenshtein("kitten", "sitting");   
+let distance = levenshtein("hannah", "hanna");   
+assert_eq!(distance, 1);
+
+// Hamming distance
+let distance = levenshtein("karolin", "kathrin").unwrap();   
 assert_eq!(distance, 3);
 ```
 
