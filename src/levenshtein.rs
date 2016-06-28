@@ -24,8 +24,8 @@ use std::cmp;
 /// use distance::*;
 /// 
 /// // Levenshtein distance
-/// let distance = levenshtein("kitten", "sitting");   
-/// assert_eq!(distance, 3);
+/// let distance = levenshtein("hannah", "hanna");   
+/// assert_eq!(distance, 1);
 /// ```
 ///
 pub fn levenshtein(a: &str, b: &str) -> i32 {

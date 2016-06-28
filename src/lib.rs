@@ -27,4 +27,9 @@
 //!
 
 pub use self::levenshtein::*;
+pub use self::hamming::*;
+pub use self::errors::*;
+
 mod levenshtein;
+mod hamming;
+mod errors;
