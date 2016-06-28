@@ -12,7 +12,10 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+/// distance error type
+///
 #[derive(Debug, PartialEq)]
 pub enum DistanceError {
+    /// Invalid arguments error
     InvalidArgs,
 }

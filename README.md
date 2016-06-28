@@ -14,7 +14,7 @@ distance is available on [crates.io](https://crates.io/crates/distance).
 
 ```toml
 [dependencies]
-distance = "0.1"
+distance = "0.2"
 ```
 
 ## Usage
