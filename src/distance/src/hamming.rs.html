@@ -143,6 +143,10 @@
 <span id="99"> 99</span>
 <span id="100">100</span>
 <span id="101">101</span>
+<span id="102">102</span>
+<span id="103">103</span>
+<span id="104">104</span>
+<span id="105">105</span>
 </pre><pre class='rust '>
 <span class='comment'>// Copyright (c) 2016. See AUTHORS file.</span>
 <span class='comment'>//</span>
@@ -162,11 +166,15 @@
 
 <span class='doccomment'>/// Calculates the Hamming distance between two strings of equal length.</span>
 <span class='doccomment'>///</span>
-<span class='doccomment'>/// # Hamming distance</span>
+<span class='doccomment'>/// # Hamming distance </span>
 <span class='doccomment'>/// The [Hamming distance](https://en.wikipedia.org/wiki/Hamming_distance) between two strings of equal length is the number of positions at </span>
 <span class='doccomment'>/// which two strings are different.</span>
 <span class='doccomment'>/// This returns an error of type DistanceError::InvalidArgs if the string arguments do not have equal length.</span>
 <span class='doccomment'>/// Unicode is fully supported.</span>
+<span class='doccomment'>///</span>
+<span class='doccomment'>/// ## Complexity </span>
+<span class='doccomment'>/// Time complexity: O(n)</span>
+<span class='doccomment'>/// Space complexity: O(1)</span>
 <span class='doccomment'>///</span>
 <span class='doccomment'>/// ## Examples</span>
 <span class='doccomment'>/// ```</span>
@@ -174,17 +182,17 @@
 <span class='doccomment'>/// </span>
 <span class='doccomment'>/// // Hamming distance</span>
 <span class='doccomment'>/// let distance = hamming(&quot;karolin&quot;, &quot;kathrin&quot;).unwrap();   </span>
-<span class='doccomment'>/// assert_eq!(distance, 3);</span>
+<span class='doccomment'>/// assert_eq!(3, distance);</span>
 <span class='doccomment'>/// ```</span>
 <span class='doccomment'>///</span>
-<span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>hamming</span>(<span class='ident'>a</span>: <span class='kw-2'>&amp;</span><span class='ident'>str</span>, <span class='ident'>b</span>: <span class='kw-2'>&amp;</span><span class='ident'>str</span>) <span class='op'>-&gt;</span> <span class='prelude-ty'>Result</span><span class='op'>&lt;</span><span class='ident'>usize</span>, <span class='ident'>DistanceError</span><span class='op'>&gt;</span> {
-    <span class='kw'>if</span> <span class='ident'>a</span>.<span class='ident'>chars</span>().<span class='ident'>count</span>() <span class='op'>!=</span> <span class='ident'>b</span>.<span class='ident'>chars</span>().<span class='ident'>count</span>() {
+<span class='kw'>pub</span> <span class='kw'>fn</span> <span class='ident'>hamming</span>(<span class='ident'>s</span>: <span class='kw-2'>&amp;</span><span class='ident'>str</span>, <span class='ident'>t</span>: <span class='kw-2'>&amp;</span><span class='ident'>str</span>) <span class='op'>-&gt;</span> <span class='prelude-ty'>Result</span><span class='op'>&lt;</span><span class='ident'>usize</span>, <span class='ident'>DistanceError</span><span class='op'>&gt;</span> {
+    <span class='kw'>if</span> <span class='ident'>s</span>.<span class='ident'>chars</span>().<span class='ident'>count</span>() <span class='op'>!=</span> <span class='ident'>t</span>.<span class='ident'>chars</span>().<span class='ident'>count</span>() {
         <span class='kw'>return</span> <span class='prelude-val'>Err</span>(<span class='ident'>DistanceError</span>::<span class='ident'>InvalidArgs</span>);
     }
 
     <span class='kw'>let</span> <span class='kw-2'>mut</span> <span class='ident'>distance</span> <span class='op'>=</span> <span class='number'>0</span>;
-    <span class='kw'>for</span> (<span class='ident'>a_char</span>, <span class='ident'>b_char</span>) <span class='kw'>in</span> <span class='ident'>a</span>.<span class='ident'>chars</span>().<span class='ident'>zip</span>(<span class='ident'>b</span>.<span class='ident'>chars</span>()) {
-        <span class='kw'>if</span> <span class='ident'>a_char</span> <span class='op'>!=</span> <span class='ident'>b_char</span> { 
+    <span class='kw'>for</span> (<span class='ident'>s_char</span>, <span class='ident'>t_char</span>) <span class='kw'>in</span> <span class='ident'>s</span>.<span class='ident'>chars</span>().<span class='ident'>zip</span>(<span class='ident'>t</span>.<span class='ident'>chars</span>()) {
+        <span class='kw'>if</span> <span class='ident'>s_char</span> <span class='op'>!=</span> <span class='ident'>t_char</span> { 
             <span class='ident'>distance</span> <span class='op'>+=</span> <span class='number'>1</span>
         }
     }
@@ -199,18 +207,18 @@
 
     <span class='attribute'>#[<span class='ident'>test</span>]</span>
     <span class='kw'>fn</span> <span class='ident'>basic</span>() {
-        <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>hamming</span>(<span class='string'>&quot;sitting&quot;</span>, <span class='string'>&quot;sitting&quot;</span>).<span class='ident'>unwrap</span>(), <span class='number'>0</span>);
-        <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>hamming</span>(<span class='string'>&quot;abcdefg&quot;</span>, <span class='string'>&quot;hijklmn&quot;</span>).<span class='ident'>unwrap</span>(), <span class='number'>7</span>);
-        <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>hamming</span>(<span class='string'>&quot;karolin&quot;</span>, <span class='string'>&quot;kathrin&quot;</span>).<span class='ident'>unwrap</span>(), <span class='number'>3</span>);
-        <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>hamming</span>(<span class='string'>&quot;hello&quot;</span>, <span class='string'>&quot;world&quot;</span>).<span class='ident'>unwrap</span>(), <span class='number'>4</span>);
-        <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>hamming</span>(<span class='string'>&quot;Rust&quot;</span>, <span class='string'>&quot;rust&quot;</span>).<span class='ident'>unwrap</span>(), <span class='number'>1</span>);
+        <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='number'>0</span>, <span class='ident'>hamming</span>(<span class='string'>&quot;sitting&quot;</span>, <span class='string'>&quot;sitting&quot;</span>).<span class='ident'>unwrap</span>());
+        <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='number'>7</span>, <span class='ident'>hamming</span>(<span class='string'>&quot;abcdefg&quot;</span>, <span class='string'>&quot;hijklmn&quot;</span>).<span class='ident'>unwrap</span>());
+        <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='number'>3</span>, <span class='ident'>hamming</span>(<span class='string'>&quot;karolin&quot;</span>, <span class='string'>&quot;kathrin&quot;</span>).<span class='ident'>unwrap</span>());
+        <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='number'>4</span>, <span class='ident'>hamming</span>(<span class='string'>&quot;hello&quot;</span>, <span class='string'>&quot;world&quot;</span>).<span class='ident'>unwrap</span>());
+        <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='number'>1</span>, <span class='ident'>hamming</span>(<span class='string'>&quot;Rust&quot;</span>, <span class='string'>&quot;rust&quot;</span>).<span class='ident'>unwrap</span>());
     }
 
     <span class='attribute'>#[<span class='ident'>test</span>]</span>
     <span class='attribute'>#[<span class='ident'>allow</span>(<span class='ident'>unused_variables</span>)]</span>
     <span class='kw'>fn</span> <span class='ident'>matching</span>() {
         <span class='kw'>match</span> <span class='ident'>hamming</span>(<span class='string'>&quot;karolin&quot;</span>, <span class='string'>&quot;kathrin&quot;</span>) {
-            <span class='prelude-val'>Ok</span>(<span class='ident'>distance</span>) <span class='op'>=&gt;</span> <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>distance</span>, <span class='number'>3</span>),
+            <span class='prelude-val'>Ok</span>(<span class='ident'>distance</span>) <span class='op'>=&gt;</span> <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='number'>3</span>, <span class='ident'>distance</span>),
             <span class='prelude-val'>Err</span>(<span class='ident'>err</span>) <span class='op'>=&gt;</span> <span class='macro'>panic</span><span class='macro'>!</span>(<span class='string'>&quot;This should not happen&quot;</span>), 
         };
 
@@ -228,14 +236,14 @@
 
     <span class='attribute'>#[<span class='ident'>test</span>]</span>
     <span class='kw'>fn</span> <span class='ident'>empty</span>() {
-        <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>hamming</span>(<span class='string'>&quot;&quot;</span>, <span class='string'>&quot;&quot;</span>).<span class='ident'>unwrap</span>(), <span class='number'>0</span>);
+        <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='number'>0</span>, <span class='ident'>hamming</span>(<span class='string'>&quot;&quot;</span>, <span class='string'>&quot;&quot;</span>).<span class='ident'>unwrap</span>());
     }
 
     <span class='attribute'>#[<span class='ident'>test</span>]</span>
     <span class='kw'>fn</span> <span class='ident'>unicode</span>() {
-        <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>hamming</span>(<span class='string'>&quot;さようなら&quot;</span>, <span class='string'>&quot;さようなは&quot;</span>).<span class='ident'>unwrap</span>(), <span class='number'>1</span>);
-        <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>hamming</span>(<span class='string'>&quot;säge&quot;</span>, <span class='string'>&quot;sage&quot;</span>).<span class='ident'>unwrap</span>(), <span class='number'>1</span>);
-        <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='ident'>hamming</span>(<span class='string'>&quot;ßäöüé&quot;</span>, <span class='string'>&quot;ößäüè&quot;</span>).<span class='ident'>unwrap</span>(), <span class='number'>4</span>);
+        <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='number'>1</span>, <span class='ident'>hamming</span>(<span class='string'>&quot;さようなら&quot;</span>, <span class='string'>&quot;さようなは&quot;</span>).<span class='ident'>unwrap</span>());
+        <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='number'>1</span>, <span class='ident'>hamming</span>(<span class='string'>&quot;säge&quot;</span>, <span class='string'>&quot;sage&quot;</span>).<span class='ident'>unwrap</span>());
+        <span class='macro'>assert_eq</span><span class='macro'>!</span>(<span class='number'>4</span>, <span class='ident'>hamming</span>(<span class='string'>&quot;ßäöüé&quot;</span>, <span class='string'>&quot;ößäüè&quot;</span>).<span class='ident'>unwrap</span>());
     }
 
     <span class='attribute'>#[<span class='ident'>test</span>]</span>
