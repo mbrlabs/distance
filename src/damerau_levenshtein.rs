@@ -24,6 +24,13 @@ use utils;
 /// (insertion, deletion, substitution & transposition) that are neccessary to convert one string into annother.
 /// The original Levenshtein distance does not take transposition into account.
 ///
+/// ## Complexity 
+/// m := len(s) + 2  
+/// n := len(t) + 2  
+///
+/// Time complexity:   O(mn)   
+/// Space complexity:  O(mn + m) 
+///
 /// ## Examples
 /// ```
 /// use distance::*;
@@ -69,7 +76,8 @@ pub fn damerau_levenshtein(s: &str, t: &str) -> usize {
                 mat[last][db] + (i - last - 1) + 1 + (j - db - 1) // transposition
             );
 
-            if s_char == t_char {
+            // that's like s_char == t_char but more efficient
+            if cost == 0 {
                 db = j;
             }
         }
@@ -92,6 +100,9 @@ mod tests {
         assert_eq!(1, damerau_levenshtein("hansi", "hasni"));
         assert_eq!(2, damerau_levenshtein("zzaabbio", "zzababoi"));
         assert_eq!(1, damerau_levenshtein("zzaabb", "zzabab"));
+        assert_eq!(3, damerau_levenshtein("abcdef", "badcfe"));
+        assert_eq!(1, damerau_levenshtein("klmb", "klm"));
+        assert_eq!(1, damerau_levenshtein("klm", "klmb"));
     }
 
     #[test]

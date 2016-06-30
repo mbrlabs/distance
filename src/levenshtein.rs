@@ -20,6 +20,13 @@ use utils;
 /// The [Levenshtein distance](https://en.wikipedia.org/wiki/Levenshtein_distance) is the number of per-character changes (insertion, deletion & substitution)
 /// that are neccessary to convert one string into annother.
 ///
+/// ## Complexity 
+/// m := len(s) + 1  
+/// n := len(t) + 1  
+///
+/// Time complexity:   O(mn)   
+/// Space complexity:  O(mn)
+///
 /// ## Examples
 /// ```
 /// use distance::*;
