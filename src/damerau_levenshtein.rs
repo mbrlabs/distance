@@ -17,6 +17,22 @@ use std::char;
 
 use utils;
 
+/// Calculates the Damerau-Levenshtein distance between two strings.
+/// 
+/// # Damerau-Levenshtein distance
+/// The [Damerau-Levenshtein distance](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance) is the number of per-character changes 
+/// (insertion, deletion, substitution & transposition) that are neccessary to convert one string into annother.
+/// The original Levenshtein distance does not take transposition into account.
+///
+/// ## Examples
+/// ```
+/// use distance::*;
+/// 
+/// // Damerau-Levenshtein distance
+/// let distance = damerau_levenshtein("hannah", "hannha");   
+/// assert_eq!(distance, 1);
+/// ```
+///
 pub fn damerau_levenshtein(s: &str, t: &str) -> usize {
     // get length of unicode chars
     let len_s = s.chars().count();
@@ -83,6 +99,12 @@ mod tests {
         assert_eq!(0, damerau_levenshtein("", ""));
         assert_eq!(3, damerau_levenshtein("", "foo"));
         assert_eq!(3, damerau_levenshtein("bar", ""));
+    }
+
+    #[test]
+    fn cases() {
+        assert_eq!(1, damerau_levenshtein("Hello", "hello"));
+        assert_eq!(1, damerau_levenshtein("World", "world"));
     }
 
     #[test]

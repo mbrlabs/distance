@@ -17,7 +17,7 @@ use std::cmp;
 /// Calculates the Levenshtein distance between two strings.
 /// 
 /// # Levenshtein distance
-/// The [Levenshtein distance]((https://en.wikipedia.org/wiki/Levenshtein_distance)) is the number of per-character changes (insertion, deletion & substitution)
+/// The [Levenshtein distance](https://en.wikipedia.org/wiki/Levenshtein_distance) is the number of per-character changes (insertion, deletion & substitution)
 /// that are neccessary to convert one string into annother.
 ///
 /// ## Examples
