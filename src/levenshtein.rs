@@ -29,24 +29,24 @@ use std::cmp;
 /// assert_eq!(distance, 1);
 /// ```
 ///
-pub fn levenshtein(a: &str, b: &str) -> usize {
+pub fn levenshtein(s: &str, t: &str) -> usize {
     // get length of unicode chars
-    let len_a = a.chars().count();
-    let len_b = b.chars().count();
+    let len_s = s.chars().count();
+    let len_t = t.chars().count();
 
     // initialize the matrix
-    let mut mat: Vec<Vec<usize>> = vec![vec![0; len_b + 1]; len_a + 1];
-    for i in 1..(len_a + 1) { 
+    let mut mat: Vec<Vec<usize>> = vec![vec![0; len_t + 1]; len_s + 1];
+    for i in 1..(len_s + 1) { 
         mat[i][0] = i; 
     }
-    for i in 1..(len_b + 1) { 
+    for i in 1..(len_t + 1) { 
         mat[0][i] = i; 
     }
 
     // apply edit operations
-    for (i, a_char) in a.chars().enumerate() {
-        for (j, b_char) in b.chars().enumerate() {
-            let substitution = if a_char == b_char {0} else {1};
+    for (i, s_char) in s.chars().enumerate() {
+        for (j, t_char) in t.chars().enumerate() {
+            let substitution = if s_char == t_char {0} else {1};
             mat[i+1][j+1] = cmp::min(
                 cmp::min(
                     mat[i][j+1] + 1,        // deletion
@@ -57,7 +57,7 @@ pub fn levenshtein(a: &str, b: &str) -> usize {
         }
     }
 
-    return mat[len_a][len_b];
+    return mat[len_s][len_t];
 }
 
 #[cfg(test)]

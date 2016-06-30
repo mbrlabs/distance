@@ -31,14 +31,14 @@ use super::DistanceError;
 /// assert_eq!(distance, 3);
 /// ```
 ///
-pub fn hamming(a: &str, b: &str) -> Result<usize, DistanceError> {
-    if a.chars().count() != b.chars().count() {
+pub fn hamming(s: &str, t: &str) -> Result<usize, DistanceError> {
+    if s.chars().count() != t.chars().count() {
         return Err(DistanceError::InvalidArgs);
     }
 
     let mut distance = 0;
-    for (a_char, b_char) in a.chars().zip(b.chars()) {
-        if a_char != b_char { 
+    for (s_char, t_char) in s.chars().zip(t.chars()) {
+        if s_char != t_char { 
             distance += 1
         }
     }

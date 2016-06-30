@@ -23,9 +23,12 @@
 //! - [Hamming distance](https://en.wikipedia.org/wiki/Hamming_distance)
 //!
 pub use self::levenshtein::*;
+pub use self::damerau_levenshtein::*;
 pub use self::hamming::*;
 pub use self::errors::*;
 
 mod levenshtein;
 mod hamming;
 mod errors;
+mod damerau_levenshtein;
+mod utils;
