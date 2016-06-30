@@ -8,13 +8,14 @@ Possible applications for this are fuzzy string searching, spell checkers, spam 
 ## Algorithms
 - [Levenshtein distance (since v0.1)](https://en.wikipedia.org/wiki/Levenshtein_distance) 
 - [Hamming distance (since v0.2)](https://en.wikipedia.org/wiki/Hamming_distance)
+- [Damerau Levenshtein distance (since v0.3)](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance)
 
 ## Add as dependency
 distance is available on [crates.io](https://crates.io/crates/distance).
 
 ```toml
 [dependencies]
-distance = "0.2"
+distance = "0.3"
 ```
 
 ## Usage
@@ -23,11 +24,15 @@ use distance::*;
 
 // Levenshtein distance
 let distance = levenshtein("hannah", "hanna");   
-assert_eq!(distance, 1);
+assert_eq!(1, distance);
+
+// Damerau Levenshtein distance
+let distance = damerau_levenshtein("hannah", "hannha");   
+assert_eq!(1, distance);
 
 // Hamming distance
 let distance = hamming("karolin", "kathrin").unwrap();   
-assert_eq!(distance, 3);
+assert_eq!(3, distance);
 ```
 
 You can also take a look at the [documentation](https://mbrlabs.github.io/distance)

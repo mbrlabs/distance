@@ -12,14 +12,14 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use std::cmp;
+use std::cmp::min;
 
 #[inline(always)]
 pub fn min3(a: usize, b: usize, c: usize) -> usize {
-   return cmp::min(cmp::min(a, b), c);
+   return min(min(a, b), c);
 }
 
 #[inline(always)]
 pub fn min4(a: usize, b: usize, c: usize, d: usize) -> usize {
-   return cmp::min(cmp::min(cmp::min(a, b), c), d); 
+   return min(min(min(a, b), c), d); 
 }
