@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-use std::cmp;
+use utils;
 
 /// Calculates the Levenshtein distance between two strings.
 /// 
@@ -26,7 +26,7 @@ use std::cmp;
 /// 
 /// // Levenshtein distance
 /// let distance = levenshtein("hannah", "hanna");   
-/// assert_eq!(distance, 1);
+/// assert_eq!(1, distance);
 /// ```
 ///
 pub fn levenshtein(s: &str, t: &str) -> usize {
@@ -47,11 +47,9 @@ pub fn levenshtein(s: &str, t: &str) -> usize {
     for (i, s_char) in s.chars().enumerate() {
         for (j, t_char) in t.chars().enumerate() {
             let substitution = if s_char == t_char {0} else {1};
-            mat[i+1][j+1] = cmp::min(
-                cmp::min(
-                    mat[i][j+1] + 1,        // deletion
-                    mat[i+1][j] + 1         // insertion 
-                ),
+            mat[i+1][j+1] = utils::min3(
+                mat[i][j+1] + 1,            // deletion
+                mat[i+1][j] + 1,            // insertion 
                 mat[i][j] + substitution    // substitution
             );
         }
@@ -66,39 +64,39 @@ mod tests {
 
     #[test]
     fn basic() {
-        assert_eq!(levenshtein("kitten", "sitting"), 3);
-        assert_eq!(levenshtein("book", "back"), 2);
-        assert_eq!(levenshtein("table", "dinner"), 5);
-        assert_eq!(levenshtein("person", "pardon"), 2);
-        assert_eq!(levenshtein("person", "persons"), 1);
+        assert_eq!(3, levenshtein("kitten", "sitting"));
+        assert_eq!(2, levenshtein("book", "back"));
+        assert_eq!(5, levenshtein("table", "dinner"));
+        assert_eq!(2, levenshtein("person", "pardon"));
+        assert_eq!(1, levenshtein("person", "persons"));
     }
 
     #[test]
     fn equal() {
-        assert_eq!(levenshtein("kitten", "kitten"), 0);
-        assert_eq!(levenshtein("a", "a"), 0);
+        assert_eq!(0, levenshtein("kitten", "kitten"));
+        assert_eq!(0, levenshtein("a", "a"));
     }
 
     #[test]
     fn cases() {
-        assert_eq!(levenshtein("Hello", "hello"), 1);
-        assert_eq!(levenshtein("World", "world"), 1);
+        assert_eq!(1, levenshtein("Hello", "hello"));
+        assert_eq!(1, levenshtein("World", "world"));
     }
 
     #[test]
     fn empty() {
-        assert_eq!(levenshtein("book", ""), 4);
-        assert_eq!(levenshtein("", "book"), 4);
-        assert_eq!(levenshtein("", ""), 0);
+        assert_eq!(4, levenshtein("book", ""));
+        assert_eq!(4, levenshtein("", "book"));
+        assert_eq!(0, levenshtein("", ""));
     }
 
     #[test]
     fn unicode() {
-        assert_eq!(levenshtein("Späße", "Spaß"), 2);
-        assert_eq!(levenshtein("さようなら", "こんにちは"), 5);
-        assert_eq!(levenshtein("さようなら", "さようなう"), 1);
-        assert_eq!(levenshtein("こんにちは", "こんにちは abc"), 4);
-        assert_eq!(levenshtein("༆༃ʘ", "༆˥ʘ"), 1);
+        assert_eq!(2, levenshtein("Späße", "Spaß"));
+        assert_eq!(5, levenshtein("さようなら", "こんにちは"));
+        assert_eq!(1, levenshtein("さようなら", "さようなう"));
+        assert_eq!(4, levenshtein("こんにちは", "こんにちは abc"));
+        assert_eq!(1, levenshtein("༆༃ʘ", "༆˥ʘ"));
     }
 
 }

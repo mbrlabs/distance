@@ -30,7 +30,7 @@ use utils;
 /// 
 /// // Damerau-Levenshtein distance
 /// let distance = damerau_levenshtein("hannah", "hannha");   
-/// assert_eq!(distance, 1);
+/// assert_eq!(1, distance);
 /// ```
 ///
 pub fn damerau_levenshtein(s: &str, t: &str) -> usize {

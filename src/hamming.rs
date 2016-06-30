@@ -28,7 +28,7 @@ use super::DistanceError;
 /// 
 /// // Hamming distance
 /// let distance = hamming("karolin", "kathrin").unwrap();   
-/// assert_eq!(distance, 3);
+/// assert_eq!(3, distance);
 /// ```
 ///
 pub fn hamming(s: &str, t: &str) -> Result<usize, DistanceError> {
@@ -53,18 +53,18 @@ mod tests {
 
     #[test]
     fn basic() {
-        assert_eq!(hamming("sitting", "sitting").unwrap(), 0);
-        assert_eq!(hamming("abcdefg", "hijklmn").unwrap(), 7);
-        assert_eq!(hamming("karolin", "kathrin").unwrap(), 3);
-        assert_eq!(hamming("hello", "world").unwrap(), 4);
-        assert_eq!(hamming("Rust", "rust").unwrap(), 1);
+        assert_eq!(0, hamming("sitting", "sitting").unwrap());
+        assert_eq!(7, hamming("abcdefg", "hijklmn").unwrap());
+        assert_eq!(3, hamming("karolin", "kathrin").unwrap());
+        assert_eq!(4, hamming("hello", "world").unwrap());
+        assert_eq!(1, hamming("Rust", "rust").unwrap());
     }
 
     #[test]
     #[allow(unused_variables)]
     fn matching() {
         match hamming("karolin", "kathrin") {
-            Ok(distance) => assert_eq!(distance, 3),
+            Ok(distance) => assert_eq!(3, distance),
             Err(err) => panic!("This should not happen"), 
         };
 
@@ -82,14 +82,14 @@ mod tests {
 
     #[test]
     fn empty() {
-        assert_eq!(hamming("", "").unwrap(), 0);
+        assert_eq!(0, hamming("", "").unwrap());
     }
 
     #[test]
     fn unicode() {
-        assert_eq!(hamming("さようなら", "さようなは").unwrap(), 1);
-        assert_eq!(hamming("säge", "sage").unwrap(), 1);
-        assert_eq!(hamming("ßäöüé", "ößäüè").unwrap(), 4);
+        assert_eq!(1, hamming("さようなら", "さようなは").unwrap());
+        assert_eq!(1, hamming("säge", "sage").unwrap());
+        assert_eq!(4, hamming("ßäöüé", "ößäüè").unwrap());
     }
 
     #[test]

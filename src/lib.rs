@@ -20,6 +20,7 @@
 //! 
 //! ## Algorithms
 //! - [Levenshtein distance](https://en.wikipedia.org/wiki/Levenshtein_distance)
+//! - [Damerau–Levenshtein distance](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance)
 //! - [Hamming distance](https://en.wikipedia.org/wiki/Hamming_distance)
 //!
 pub use self::levenshtein::*;
