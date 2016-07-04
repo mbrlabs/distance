@@ -1,12 +1,14 @@
 # distance 
 [![](https://travis-ci.org/mbrlabs/distance.svg?branch=master)](https://travis-ci.org/mbrlabs/distance) 
 [![](https://img.shields.io/crates/v/distance.svg)](https://crates.io/crates/distance)
-[![](https://img.shields.io/badge/docs-distance%200.3-blue.svg)](https://mbrlabs.github.io/distance)
+[![](https://img.shields.io/badge/docs-v0.3.0-blue.svg)](https://mbrlabs.github.io/distance)
 
 This is a rust library for approximate string matching algorithms.   
 Possible applications for this are fuzzy string searching, spell checkers, spam filters, etc.
 
 ## Algorithms
+All algorithms support UTF-8 encoded strings.
+
 - [Levenshtein distance (since v0.1)](https://en.wikipedia.org/wiki/Levenshtein_distance) 
 - [Hamming distance (since v0.2)](https://en.wikipedia.org/wiki/Hamming_distance)
 - [Damerau Levenshtein distance (since v0.3)](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance)
