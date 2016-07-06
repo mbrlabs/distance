@@ -23,7 +23,8 @@ use utils;
 /// The [Damerau-Levenshtein distance](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance) is the number of per-character changes 
 /// (insertion, deletion, substitution & transposition) that are neccessary to convert one string into annother.
 /// The original Levenshtein distance does not take transposition into account.
-///
+/// This implementation does fully support unicode strings.
+/// 
 /// ## Complexity 
 /// m := len(s) + 2  
 /// n := len(t) + 2  
