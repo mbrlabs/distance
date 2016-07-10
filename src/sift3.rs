@@ -12,18 +12,34 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-
-/// Calculates the sift3 distane between two strings.
-///
-/// # Sift3 distance
+/// Calculates the sift3 distane between two strings with the default max_distance of 5.
 /// 
-/// (Shift3)[http://siderite.blogspot.com/2007/04/super-fast-and-accurate-string-distance.html] -  
-/// super fast and accurate string distance algorithm.
+/// # Sift3
+/// (Sift3)[http://siderite.blogspot.com/2007/04/super-fast-and-accurate-string-distance.html] - super fast and accurate string distance algorithm.
+/// The higher the return value, the more different the two strings are. 
+/// A value of 0.0 means both streaings are equal.
+///
+/// This implementation does fully support unicode strings.
+///
+/// ## Examples
+/// ```
+/// use distance::*;
+/// 
+/// // Sift3 distance
+/// let distance = sift3("hannah", "hanna");   
+/// assert_eq!(0.5, distance);
+/// ```
+///
+pub fn sift3(s: &str, t: &str) -> f32 {
+    return sift3_offset(s, t, 5);
+}
+
 #[inline(always)]
 fn sift3_offset(s: &str, t: &str, max_offset: usize) -> f32 {
     let len_s = s.chars().count();
     let len_t = t.chars().count();
 
+    // handle empty strings
     if len_s == 0 {
         if len_t == 0 {
             return 0.0;
@@ -31,9 +47,8 @@ fn sift3_offset(s: &str, t: &str, max_offset: usize) -> f32 {
             return len_t as f32;
         }
     }
-
-    if len_t == 0 {
-        return len_s as f32;
+    if len_t == 0 { 
+        return len_s as f32; 
     }
 
     let sv: Vec<char> = s.chars().collect();
@@ -67,23 +82,13 @@ fn sift3_offset(s: &str, t: &str, max_offset: usize) -> f32 {
     return ((len_s + len_t) as f32) / 2.0 - (lcs as f32);
 }
 
-/// Calculates the sift3 distane between two strings with the default max_distance of 5.
-///
-/// # Sift3 distance
-/// 
-/// (Shift3)[http://siderite.blogspot.com/2007/04/super-fast-and-accurate-string-distance.html] -  
-/// super fast and accurate string distance algorithm.
-pub fn sift3(s: &str, t: &str) -> f32 {
-    return sift3_offset(s, t, 5);
-}
-
-
 #[cfg(test)]
 mod tests {
-    use super::sift3;
+    use super::{sift3, sift3_offset};
 
     #[test]
     fn basic() {
+        assert_eq!(0.5, sift3("hannah", "hanna"));
         assert_eq!(2.5, sift3("kitten", "sitting"));
         assert_eq!(2.0, sift3("book", "back"));
         assert_eq!(4.5, sift3("table", "dinner"));
