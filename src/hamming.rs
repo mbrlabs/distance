@@ -20,7 +20,7 @@ use super::DistanceError;
 /// The [Hamming distance](https://en.wikipedia.org/wiki/Hamming_distance) between two strings of equal length is the number of positions at 
 /// which two strings are different.
 /// This returns an error of type DistanceError::InvalidArgs if the string arguments do not have equal length.
-/// Unicode is fully supported.
+/// This implementation does fully support unicode strings.
 ///
 /// ## Complexity 
 /// Time complexity: O(n)

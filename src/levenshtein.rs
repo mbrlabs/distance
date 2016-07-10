@@ -19,6 +19,7 @@ use utils;
 /// # Levenshtein distance
 /// The [Levenshtein distance](https://en.wikipedia.org/wiki/Levenshtein_distance) is the number of per-character changes (insertion, deletion & substitution)
 /// that are neccessary to convert one string into annother.
+/// This implementation does fully support unicode strings.
 ///
 /// ## Complexity 
 /// m := len(s) + 1  
