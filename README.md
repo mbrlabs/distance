@@ -12,6 +12,7 @@ All algorithms support UTF-8 encoded strings.
 - [Levenshtein distance (since v0.1)](https://en.wikipedia.org/wiki/Levenshtein_distance) 
 - [Hamming distance (since v0.2)](https://en.wikipedia.org/wiki/Hamming_distance)
 - [Damerau Levenshtein distance (since v0.3)](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance)
+- [Sift3 distance (since v0.4)](http://siderite.blogspot.com/2007/04/super-fast-and-accurate-string-distance.html)
 
 ## Add as dependency
 distance is available on [crates.io](https://crates.io/crates/distance).
@@ -36,4 +37,8 @@ assert_eq!(1, distance);
 // Hamming distance
 let distance = hamming("karolin", "kathrin").unwrap();   
 assert_eq!(3, distance);
+
+// Sift3 distance
+let distance = sift3("hannah", "hanna");
+assert_eq!(0.5, distance);
 ```

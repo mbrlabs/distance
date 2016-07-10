@@ -12,12 +12,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-/// Calculates the sift3 distane between two strings with the default max_distance of 5.
+/// Calculates the sift3 distance between two strings with a default max_distance of 5.
 /// 
 /// # Sift3
 /// (Sift3)[http://siderite.blogspot.com/2007/04/super-fast-and-accurate-string-distance.html] - super fast and accurate string distance algorithm.
 /// The higher the return value, the more different the two strings are. 
-/// A value of 0.0 means both streaings are equal.
+/// A value of 0.0 means both strings are equal.
 ///
 /// This implementation does fully support unicode strings.
 ///
@@ -84,7 +84,7 @@ fn sift3_offset(s: &str, t: &str, max_offset: usize) -> f32 {
 
 #[cfg(test)]
 mod tests {
-    use super::{sift3, sift3_offset};
+    use super::sift3;
 
     #[test]
     fn basic() {

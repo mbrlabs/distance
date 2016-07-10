@@ -22,6 +22,7 @@
 //! - [Levenshtein distance](https://en.wikipedia.org/wiki/Levenshtein_distance)
 //! - [Damerau–Levenshtein distance](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance)
 //! - [Hamming distance](https://en.wikipedia.org/wiki/Hamming_distance)
+//! - [Sift3 distance](http://siderite.blogspot.com/2007/04/super-fast-and-accurate-string-distance.html)
 //!
 pub use self::levenshtein::*;
 pub use self::damerau_levenshtein::*;
