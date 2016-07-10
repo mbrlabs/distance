@@ -15,7 +15,7 @@
 /// Calculates the sift3 distance between two strings with a default max_distance of 5.
 /// 
 /// # Sift3
-/// (Sift3)[http://siderite.blogspot.com/2007/04/super-fast-and-accurate-string-distance.html] - super fast and accurate string distance algorithm.
+/// [Sift3](http://siderite.blogspot.com/2007/04/super-fast-and-accurate-string-distance.html) - super fast and accurate string distance algorithm.
 /// The higher the return value, the more different the two strings are. 
 /// A value of 0.0 means both strings are equal.
 ///

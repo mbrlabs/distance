@@ -1,7 +1,7 @@
 # distance 
 [![](https://travis-ci.org/mbrlabs/distance.svg?branch=master)](https://travis-ci.org/mbrlabs/distance) 
 [![](https://img.shields.io/crates/v/distance.svg)](https://crates.io/crates/distance)
-[![](https://img.shields.io/badge/docs-v0.3.0-blue.svg)](https://mbrlabs.github.io/distance)
+[![](https://img.shields.io/badge/docs-v0.4.0-blue.svg)](https://mbrlabs.github.io/distance)
 
 This is a rust library for approximate string matching algorithms.   
 Possible applications for this are fuzzy string searching, spell checkers, spam filters, etc.
@@ -19,7 +19,7 @@ distance is available on [crates.io](https://crates.io/crates/distance).
 
 ```toml
 [dependencies]
-distance = "0.3"
+distance = "0.4"
 ```
 
 ## Usage

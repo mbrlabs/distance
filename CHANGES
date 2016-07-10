@@ -1,5 +1,5 @@
-[0.4.0]
-
+[0.4.0] ~ 10/07/2016
+- Added:    Sift3 distance + tests
 
 [0.3.0] ~ 30/06/2016
 - Added:    Damerau Levenshtein distance + tests
