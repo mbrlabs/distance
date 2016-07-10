@@ -26,9 +26,11 @@
 pub use self::levenshtein::*;
 pub use self::damerau_levenshtein::*;
 pub use self::hamming::*;
+pub use self::sift3::*;
 pub use self::errors::*;
 
 mod levenshtein;
+mod sift3;
 mod hamming;
 mod errors;
 mod damerau_levenshtein;
