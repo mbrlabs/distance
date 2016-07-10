@@ -190,6 +190,7 @@
 <span id="146">146</span>
 <span id="147">147</span>
 <span id="148">148</span>
+<span id="149">149</span>
 </pre><pre class='rust '>
 <span class='comment'>// Copyright (c) 2016. See AUTHORS file.</span>
 <span class='comment'>//</span>
@@ -216,7 +217,8 @@
 <span class='doccomment'>/// The [Damerau-Levenshtein distance](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance) is the number of per-character changes </span>
 <span class='doccomment'>/// (insertion, deletion, substitution &amp; transposition) that are neccessary to convert one string into annother.</span>
 <span class='doccomment'>/// The original Levenshtein distance does not take transposition into account.</span>
-<span class='doccomment'>///</span>
+<span class='doccomment'>/// This implementation does fully support unicode strings.</span>
+<span class='doccomment'>/// </span>
 <span class='doccomment'>/// ## Complexity </span>
 <span class='doccomment'>/// m := len(s) + 2  </span>
 <span class='doccomment'>/// n := len(t) + 2  </span>

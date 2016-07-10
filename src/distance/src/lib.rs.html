@@ -77,6 +77,9 @@
 <span id="33">33</span>
 <span id="34">34</span>
 <span id="35">35</span>
+<span id="36">36</span>
+<span id="37">37</span>
+<span id="38">38</span>
 </pre><pre class='rust '>
 <span class='comment'>// Copyright (c) 2016. See AUTHORS file.</span>
 <span class='comment'>//</span>
@@ -102,13 +105,16 @@
 <span class='doccomment'>//! - [Levenshtein distance](https://en.wikipedia.org/wiki/Levenshtein_distance)</span>
 <span class='doccomment'>//! - [Damerau–Levenshtein distance](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance)</span>
 <span class='doccomment'>//! - [Hamming distance](https://en.wikipedia.org/wiki/Hamming_distance)</span>
+<span class='doccomment'>//! - [Sift3 distance](http://siderite.blogspot.com/2007/04/super-fast-and-accurate-string-distance.html)</span>
 <span class='doccomment'>//!</span>
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='self'>self</span>::<span class='ident'>levenshtein</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='self'>self</span>::<span class='ident'>damerau_levenshtein</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='self'>self</span>::<span class='ident'>hamming</span>::<span class='op'>*</span>;
+<span class='kw'>pub</span> <span class='kw'>use</span> <span class='self'>self</span>::<span class='ident'>sift3</span>::<span class='op'>*</span>;
 <span class='kw'>pub</span> <span class='kw'>use</span> <span class='self'>self</span>::<span class='ident'>errors</span>::<span class='op'>*</span>;
 
 <span class='kw'>mod</span> <span class='ident'>levenshtein</span>;
+<span class='kw'>mod</span> <span class='ident'>sift3</span>;
 <span class='kw'>mod</span> <span class='ident'>hamming</span>;
 <span class='kw'>mod</span> <span class='ident'>errors</span>;
 <span class='kw'>mod</span> <span class='ident'>damerau_levenshtein</span>;

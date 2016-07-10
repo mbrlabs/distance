@@ -47,14 +47,14 @@
                    <a id="toggle-all-docs" href="javascript:void(0)" title="collapse all docs">
                        [<span class='inner'>&#x2212;</span>]
                    </a>
-               </span><a id='src-35' class='srclink' href='../src/distance/src/hamming.rs.html#38-51' title='goto source code'>[src]</a></span></h1>
+               </span><a id='src-56' class='srclink' href='../src/distance/src/hamming.rs.html#38-51' title='goto source code'>[src]</a></span></h1>
 <pre class='rust fn'>pub fn hamming(s: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>, t: &amp;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.str.html'>str</a>) -&gt; <a class='enum' href='https://doc.rust-lang.org/nightly/core/result/enum.Result.html' title='core::result::Result'>Result</a>&lt;<a class='primitive' href='https://doc.rust-lang.org/nightly/std/primitive.usize.html'>usize</a>, <a class='enum' href='../distance/enum.DistanceError.html' title='distance::DistanceError'>DistanceError</a>&gt;</pre><div class='docblock'><p>Calculates the Hamming distance between two strings of equal length.</p>
 
 <h1 id='hamming-distance' class='section-header'><a href='#hamming-distance'>Hamming distance</a></h1>
 <p>The <a href="https://en.wikipedia.org/wiki/Hamming_distance">Hamming distance</a> between two strings of equal length is the number of positions at 
 which two strings are different.
 This returns an error of type DistanceError::InvalidArgs if the string arguments do not have equal length.
-Unicode is fully supported.</p>
+This implementation does fully support unicode strings.</p>
 
 <h2 id='complexity' class='section-header'><a href='#complexity'>Complexity</a></h2>
 <p>Time complexity: O(n)

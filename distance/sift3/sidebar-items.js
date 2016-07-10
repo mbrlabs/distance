@@ -1,0 +1,1 @@
+initSidebarItems({"fn":[["sift3","Calculates the sift3 distance between two strings with a default max_distance of 5."]]});
