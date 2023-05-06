@@ -69,7 +69,7 @@ pub fn damerau_levenshtein(s: &str, t: &str) -> usize {
             let j = j + 1;
             let last = *char_map.get(&t_char).unwrap_or(&0);
 
-            let cost = if s_char == t_char { 0 } else { 1 };
+            let cost = (s_char != t_char) as usize;
             mat[i+1][j+1] = utils::min4(
                 mat[i+1][j] + 1,     // deletion
                 mat[i][j+1] + 1,     // insertion 
