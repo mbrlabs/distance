@@ -54,7 +54,7 @@ pub fn levenshtein(s: &str, t: &str) -> usize {
     // apply edit operations
     for (i, s_char) in s.chars().enumerate() {
         for (j, t_char) in t.chars().enumerate() {
-            let substitution = if s_char == t_char {0} else {1};
+            let substitution = (s_char == t_char) as usize;
             mat[i+1][j+1] = utils::min3(
                 mat[i][j+1] + 1,            // deletion
                 mat[i+1][j] + 1,            // insertion 
